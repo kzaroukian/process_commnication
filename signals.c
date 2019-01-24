@@ -13,10 +13,10 @@ void userSignalHandler(int sigNum){
 
 	printf("user handler");
 	if(sigNum == SIGUSR1){
-		printf("received a SIGUSR1 signal");
+		printf("received a SIGUSR1 signal\n");
 
 	} else if(sigNum == SIGUSR2){
-		printf("received a SIGUSR2 signal");
+		printf("received a SIGUSR2 signal\n");
 	}
 }
 
@@ -32,8 +32,14 @@ int main()
 		pid_t parentPid = getppid();
 		while(1){
 			int waitTime;
-			sleep(1);
-			kill(parentPid, SIGUSR1);
+			waitTime = rand() % (6-1) +1;
+			sleep(waitTime);
+			int randSend = rand() % (2-0);
+			if (randSend == 0) {
+			   kill(parentPid, SIGUSR1);
+			} else {
+			   kill(parentPid, SIGUSR2);
+			}
 		}
 	}else{
 		//user signal handlers - These will be sent from the child using kill()
