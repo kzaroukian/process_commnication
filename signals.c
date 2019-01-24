@@ -3,6 +3,9 @@
 #include <stdlib.h> 
 #include <signal.h>
 
+// Process Communication for Lab 3
+// By Kaylin Zaroukian and Marc Chesebro
+
 void interuptHandler (int sigNum) 
 { 
 	printf (" received an interrupt.\n"); 
