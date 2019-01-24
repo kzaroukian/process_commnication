@@ -11,6 +11,7 @@ void interuptHandler (int sigNum)
 
 void userSignalHandler(int sigNum){
 
+	printf("user handler");
 	if(sigNum == SIGUSR1){
 		printf("received a SIGUSR1 signal");
 
@@ -32,7 +33,7 @@ int main()
 		while(1){
 			int waitTime;
 			sleep(1);
-			kill(SIGUSR1, parentPid);
+			kill(parentPid, SIGUSR1);
 		}
 	}else{
 		//user signal handlers - These will be sent from the child using kill()
