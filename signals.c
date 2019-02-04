@@ -37,7 +37,7 @@ int main()
 			int waitTime;
 			waitTime = rand() % (6-1) +1;
 			sleep(waitTime);
-			int randSend = rand() % (2-0);
+			int randSend = rand() % 2;
 			if (randSend == 0) {
 			   kill(parentPid, SIGUSR1);
 			} else {
